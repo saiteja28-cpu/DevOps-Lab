@@ -47,3 +47,35 @@ button {
   max-width: 320px;
   width: 90%;
 }
+
+/* Added Feature 1: Row Layout & Flexible Fields */
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.row input[type="text"],
+.row input[type="number"],
+.row input[type="email"],
+.row input[type="tel"],
+.row input[type="password"],
+.row select {
+  flex: 1;
+  min-width: 140px;
+}
+
+/* Added Feature 2: Responsive Adjustments for Mobile Screens */
+@media (max-width: 480px) {
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+    margin-right: 0;
+  }
+}
