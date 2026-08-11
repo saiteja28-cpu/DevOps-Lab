@@ -10,12 +10,40 @@ function toggleMarks12() {
   const show = statusPassed.checked;
   marks12Fields.style.display = show ? 'flex' : 'none';
   marks12Note.style.display = show ? 'block' : 'none';
+  
+  // Toggle required attribute for Class 12 inputs
+  const inputs = marks12Fields.querySelectorAll('input');
+  inputs.forEach(input => input.required = show);
 }
 statusPassed.addEventListener('change', toggleMarks12);
 statusPursuing.addEventListener('change', toggleMarks12);
 toggleMarks12();
 
-// Build the popup markup (not present in the HTML) and add it to the page
+// ADDED FEATURE 1: Automatic Percentage Calculation
+function setupAutoPercentage(totalId, scoredId, percentId) {
+  const totalInput = document.getElementById(totalId);
+  const scoredInput = document.getElementById(scoredId);
+  const percentInput = document.getElementById(percentId);
+
+  function calculate() {
+    const total = parseFloat(totalInput.value);
+    const scored = parseFloat(scoredInput.value);
+    if (total > 0 && scored >= 0 && scored <= total) {
+      percentInput.value = ((scored / total) * 100).toFixed(2);
+    } else {
+      percentInput.value = '';
+    }
+  }
+
+  if (totalInput && scoredInput && percentInput) {
+    totalInput.addEventListener('input', calculate);
+    scoredInput.addEventListener('input', calculate);
+  }
+}
+setupAutoPercentage('marks10Total', 'marks10Scored', 'marks10Percent');
+setupAutoPercentage('marks12Total', 'marks12Scored', 'marks12Percent');
+
+// Build the popup markup and add it to the page
 const overlay = document.createElement('div');
 overlay.className = 'overlay';
 overlay.innerHTML = `
@@ -45,10 +73,22 @@ form.addEventListener('submit', function (e) {
     return;
   }
 
-  const aadhar = document.getElementById('aadhar').value.trim();
-  if (!/^\d{12}$/.test(aadhar)) {
-    message.textContent = 'Enter a valid 12-digit Aadhar number.';
+  const identityInput = document.getElementById('identityNumber') || document.getElementById('aadhar');
+  if (identityInput && !/^\d{12}$/.test(identityInput.value.trim())) {
+    message.textContent = 'Enter a valid 12-digit identity number.';
     return;
+  }
+
+  // ADDED FEATURE 2: Validation to prevent duplicate Exam Center preferences
+  const center1 = document.getElementById('centerChoice1')?.value;
+  const center2 = document.getElementById('centerChoice2')?.value;
+  const center3 = document.getElementById('centerChoice3')?.value;
+
+  if (center1 && center2 && center3) {
+    if (center1 === center2 || center1 === center3 || center2 === center3) {
+      message.textContent = 'Please select three different exam center preferences.';
+      return;
+    }
   }
 
   const password = document.getElementById('password').value;
