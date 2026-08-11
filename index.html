@@ -15,7 +15,7 @@
   <h3>Personal Details</h3>
   <div class="row">
     <input type="text" id="firstName" placeholder="First name" required>
-    <input type="text" id="middleName" placeholder="Middle name" required>
+    <input type="text" id="middleName" placeholder="Middle name">
     <input type="text" id="lastName" placeholder="Last name" required>
   </div>
 
@@ -40,6 +40,28 @@
     </label>
   </div>
 
+  <!-- FEATURE 1: Category & PwD Details -->
+  <h3>Category & Disability Details</h3>
+  <div class="row">
+    <label>Category
+      <select id="category" required>
+        <option value="" selected disabled>Select Category...</option>
+        <option value="general">General</option>
+        <option value="gen-ews">General-EWS</option>
+        <option value="obc-ncl">OBC-NCL</option>
+        <option value="sc">SC</option>
+        <option value="st">ST</option>
+      </select>
+    </label>
+    <label>Person with Disability (PwD)?
+      <select id="pwdStatus" required>
+        <option value="" selected disabled>Choose...</option>
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select>
+    </label>
+  </div>
+
   <h3>Educational Details</h3>
   <p>Class 10 Details</p>
   <div class="row">
@@ -47,11 +69,10 @@
     <label>School Address <input type="text" id="school10Address" required></label>
   </div>
   <div class="row">
-    <input type="text" id="marks10Total" placeholder="Total marks" required>
-    <input type="text" id="marks10Scored" placeholder="Scored marks" required>
-    <input type="text" id="marks10Percent" placeholder="Percentage" required>
+    <input type="number" id="marks10Total" placeholder="Total marks" required>
+    <input type="number" id="marks10Scored" placeholder="Scored marks" required>
+    <input type="number" id="marks10Percent" placeholder="Percentage" required step="0.01">
   </div>
-
   <p>Intermediate Details</p>
   <div class="row">
     <label>School/College Name <input type="text" id="interCollegeName" required></label>
@@ -65,9 +86,41 @@
 
   <p id="marks12Note">For Passed Out</p>
   <div class="row" id="marks12Fields">
-    <input type="text" id="marks12Total" placeholder="Total marks" required>
-    <input type="text" id="marks12Scored" placeholder="Scored marks" required>
-    <input type="text" id="marks12Percent" placeholder="Percentage Scored" required>
+    <input type="number" id="marks12Total" placeholder="Total marks">
+    <input type="number" id="marks12Scored" placeholder="Scored marks">
+    <input type="number" id="marks12Percent" placeholder="Percentage Scored" step="0.01">
+  </div>
+
+  <!-- FEATURE 2: Exam Center Preferences -->
+  <h3>Exam Center Preferences</h3>
+  <div class="row">
+    <label>1st Preference City
+      <select id="centerChoice1" required>
+        <option value="" selected disabled>Select City...</option>
+        <option value="hyderabad">Hyderabad</option>
+        <option value="vijayawada">Vijayawada</option>
+        <option value="visakhapatnam">Visakhapatnam</option>
+        <option value="chennai">Chennai</option>
+      </select>
+    </label>
+    <label>2nd Preference City
+      <select id="centerChoice2" required>
+        <option value="" selected disabled>Select City...</option>
+        <option value="hyderabad">Hyderabad</option>
+        <option value="vijayawada">Vijayawada</option>
+        <option value="visakhapatnam">Visakhapatnam</option>
+        <option value="chennai">Chennai</option>
+      </select>
+    </label>
+    <label>3rd Preference City
+      <select id="centerChoice3" required>
+        <option value="" selected disabled>Select City...</option>
+        <option value="hyderabad">Hyderabad</option>
+        <option value="vijayawada">Vijayawada</option>
+        <option value="visakhapatnam">Visakhapatnam</option>
+        <option value="chennai">Chennai</option>
+      </select>
+    </label>
   </div>
 
   <h3>Additional Details</h3>
@@ -77,11 +130,11 @@
   </div>
   <div class="row">
     <label>Parent/Guardian Mobile Number <input type="tel" id="guardianPhone" required></label>
-    <label>Student Aadhar Number <input type="text" id="aadhar" required></label>
+    <label>Student Identity Proof Number <input type="text" id="identityNumber" placeholder="ID Number" required></label>
   </div>
   <div class="row">
-    <label>Student's Photo (Latest) <input type="file" id="photoUpload" required></label>
-    <label>Student's Signature <input type="file" id="signatureUpload" required></label>
+    <label>Student's Photo (Latest) <input type="file" id="photoUpload" accept="image/*" required></label>
+    <label>Student's Signature <input type="file" id="signatureUpload" accept="image/*" required></label>
   </div>
 
   <h3>Password</h3>
