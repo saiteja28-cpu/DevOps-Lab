@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JEE Mains Registration</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<h1>JEE Mains Registration</h1>
+
+<form id="regForm">
+
+  <h3>Personal Details</h3>
+  <div class="row">
+    <input type="text" id="firstName" placeholder="First name" required>
+    <input type="text" id="middleName" placeholder="Middle name" required>
+    <input type="text" id="lastName" placeholder="Last name" required>
+  </div>
+
+  <label>Father Name <input type="text" id="fatherName" required></label>
+  <label>Mother Name <input type="text" id="motherName" required></label>
+
+  <div class="row">
+    Gender
+    <label><input type="radio" name="gender" value="male" required> Male</label>
+    <label><input type="radio" name="gender" value="female" required> Female</label>
+  </div>
+
+  <div class="row">
+    <label>City <input type="text" id="city" required></label>
+    <label>State
+      <select id="state" required>
+        <option value="" selected disabled>Choose...</option>
+        <option>Andhra Pradesh</option>
+        <option>Telangana</option>
+        <option>Tamil Nadu</option>
+      </select>
+    </label>
+  </div>
+
+  <h3>Educational Details</h3>
+  <p>Class 10 Details</p>
+  <div class="row">
+    <label>School Name <input type="text" id="school10Name" required></label>
+    <label>School Address <input type="text" id="school10Address" required></label>
+  </div>
+  <div class="row">
+    <input type="text" id="marks10Total" placeholder="Total marks" required>
+    <input type="text" id="marks10Scored" placeholder="Scored marks" required>
+    <input type="text" id="marks10Percent" placeholder="Percentage" required>
+  </div>
+
+  <p>Intermediate Details</p>
+  <div class="row">
+    <label>School/College Name <input type="text" id="interCollegeName" required></label>
+    <label>School/College Address <input type="text" id="interCollegeAddress" required></label>
+  </div>
+
+  <div class="row">
+    <label><input type="radio" name="interStatus" value="passed" id="statusPassed" required> Passed Out</label>
+    <label><input type="radio" name="interStatus" value="pursuing" id="statusPursuing" required> Pursuing</label>
+  </div>
+
+  <p id="marks12Note">For Passed Out</p>
+  <div class="row" id="marks12Fields">
+    <input type="text" id="marks12Total" placeholder="Total marks" required>
+    <input type="text" id="marks12Scored" placeholder="Scored marks" required>
+    <input type="text" id="marks12Percent" placeholder="Percentage Scored" required>
+  </div>
+
+  <h3>Additional Details</h3>
+  <div class="row">
+    <label>Email ID <input type="email" id="email" required></label>
+    <label>Student Mobile Number <input type="tel" id="studentPhone" required></label>
+  </div>
+  <div class="row">
+    <label>Parent/Guardian Mobile Number <input type="tel" id="guardianPhone" required></label>
+    <label>Student Aadhar Number <input type="text" id="aadhar" required></label>
+  </div>
+  <div class="row">
+    <label>Student's Photo (Latest) <input type="file" id="photoUpload" required></label>
+    <label>Student's Signature <input type="file" id="signatureUpload" required></label>
+  </div>
+
+  <h3>Password</h3>
+  <div class="row">
+    <label>Enter Password <input type="password" id="password" required></label>
+    <label>Re-Enter Password <input type="password" id="confirmPassword" required></label>
+  </div>
+
+  <p id="message" class="message"></p>
+
+  <div class="row">
+    <button type="submit">Submit</button>
+    <button type="reset">Clear</button>
+  </div>
+
+</form>
+
+<script src="index.js"></script>
+</body>
+</html>
