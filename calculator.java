@@ -15,7 +15,6 @@ public class BasicCalculator {
         
         double result;
 
-
         switch (operator) {
             case '+': result = num1 + num2; break;
             case '-': result = num1 - num2; break;
@@ -27,6 +26,7 @@ public class BasicCalculator {
                     System.out.println("Error: Division by zero.");
                     return;
                 }
+
                 break;
             default:
                 System.out.println("Invalid operator!");
